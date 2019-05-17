@@ -1,5 +1,5 @@
 public class Body {
-	public static final double grav_cons = 6.67e-11;
+	private static final double grav_cons = 6.67e-11;
 	public double xxPos;
 	public double yyPos;
 	public double xxVel;
