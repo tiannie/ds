@@ -61,6 +61,10 @@ public class LinkedListDeque<T> {
         }
     }
     public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
+
         size--;
 
         DNode oldFirst = sentinel.next;
@@ -69,6 +73,9 @@ public class LinkedListDeque<T> {
         return (T) oldFirst.item;
     }
     public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
         size--;
 
         DNode oldLast = sentinel.prev;
