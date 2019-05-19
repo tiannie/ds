@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 /**
  * Implement a deque conform to cpp.com's description of deque API.
  */
@@ -22,10 +20,10 @@ public class ArrayDeque<T> {
     }
 
     private T[] getNewArray() {
-        T[] new_array = (T[]) new Object[size];
-        System.arraycopy(array, 0, new_array, 0, head);
-        System.arraycopy(array, head, new_array, head + 1, size - head);
-        return new_array;
+        T[] newArray = (T[]) new Object[size];
+        System.arraycopy(array, 0, newArray, 0, head);
+        System.arraycopy(array, head, newArray, head + 1, size - head);
+        return newArray;
     }
 
     public void addFirst(T item) {
@@ -37,9 +35,9 @@ public class ArrayDeque<T> {
             return;
         }
 
-        T[] new_array = getNewArray();
-        new_array[head] = item;
-        array = new_array;
+        T[] newArray = getNewArray();
+        newArray[head] = item;
+        array = newArray;
     }
 
     public void addLast(T item) {
@@ -51,10 +49,10 @@ public class ArrayDeque<T> {
             return;
         }
 
-        T[] new_array = getNewArray();
-        new_array[head] = item;
+        T[] newArray = getNewArray();
+        newArray[head] = item;
         head++;
-        array = new_array;
+        array = newArray;
     }
 
     public boolean isEmpty() {
@@ -76,19 +74,19 @@ public class ArrayDeque<T> {
     }
 
     private T[] shrinkArray() {
-        T[] new_array = (T[]) new Object[size * 4];
+        T[] newArray = (T[]) new Object[size * 4];
         if (head + size <= array.length) {
-            System.arraycopy(array, head, new_array, 0, size);
+            System.arraycopy(array, head, newArray, 0, size);
         } else {
-            System.arraycopy(array, head, new_array, 0, array.length - head);
-            System.arraycopy(array, 0, new_array, array.length - head,
+            System.arraycopy(array, head, newArray, 0, array.length - head);
+            System.arraycopy(array, 0, newArray, array.length - head,
                     head + size - array.length);
         }
-        return new_array;
+        return newArray;
     }
 
     public T removeFirst() {
-        T old_first = array[head];
+        T oldFirst = array[head];
         array[head] = null;
 
         size--;
@@ -99,11 +97,11 @@ public class ArrayDeque<T> {
                 array = shrinkArray();
             }
         }
-        return old_first;
+        return oldFirst;
     }
 
     public T removeLast() {
-        T old_last = array[head + size - 1];
+        T oldLast = array[head + size - 1];
         array[head + size - 1] = null;
 
         size--;
@@ -113,7 +111,7 @@ public class ArrayDeque<T> {
                 array = shrinkArray();
             }
         }
-        return old_last;
+        return oldLast;
     }
 
     public T get(int index) {

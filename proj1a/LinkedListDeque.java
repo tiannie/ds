@@ -36,16 +36,16 @@ public class LinkedListDeque<T> {
     public void addFirst(T item) {
         size++;
 
-        DNode new_first = new DNode(item, sentinel, sentinel.next);
-        sentinel.next.prev = new_first;
-        sentinel.next = new_first;
+        DNode newFirst = new DNode(item, sentinel, sentinel.next);
+        sentinel.next.prev = newFirst;
+        sentinel.next = newFirst;
     }
     public void addLast(T item) {
         size++;
 
-        DNode new_last = new DNode(item, sentinel.prev, sentinel);
-        sentinel.prev.next = new_last;
-        sentinel.prev = new_last;
+        DNode newLast = new DNode(item, sentinel.prev, sentinel);
+        sentinel.prev.next = newLast;
+        sentinel.prev = newLast;
     }
     public boolean isEmpty() {
         return sentinel.next == sentinel;
@@ -63,18 +63,18 @@ public class LinkedListDeque<T> {
     public T removeFirst() {
         size--;
 
-        DNode old_first = sentinel.next;
+        DNode oldFirst = sentinel.next;
         sentinel.next.next.prev = sentinel;
-        sentinel.next = old_first.next;
-        return (T) old_first.item;
+        sentinel.next = oldFirst.next;
+        return (T) oldFirst.item;
     }
     public T removeLast() {
         size--;
 
-        DNode old_last = sentinel.prev;
+        DNode oldLast = sentinel.prev;
         sentinel.prev.prev.next = sentinel;
-        sentinel.prev = old_last.prev;
-        return (T) old_last.item;
+        sentinel.prev = oldLast.prev;
+        return (T) oldLast.item;
     }
     public T get(int index) {
         DNode p = sentinel;
