@@ -78,9 +78,26 @@ public class LinkedListDequeTest {
 		printTestStatus(passed);
 	}
 
+	/** Adds 3 items, 1, 2, 3, then get the middle one. */
+	public static void getTest() {
+        System.out.println("Running get/getRecursive test.");
+
+        LinkedListDeque<Integer> lld = new LinkedListDeque<>();
+        lld.addFirst(1);
+        lld.addLast(2);
+        lld.addLast(3);
+
+        boolean passed = lld.get(1) == 2;
+
+        passed = (lld.getRecursive(2) == 3) && passed;
+
+        printTestStatus(passed);
+    }
+
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
+		getTest();
 	}
 } 
