@@ -82,14 +82,22 @@ public class ArrayDequeTest {
 	public static void getTest() {
         System.out.println("Running get/getRecursive test.");
 
-        ArrayDeque<Integer> lld = new ArrayDeque<>();
-        lld.addFirst(1);
-        lld.addLast(2);
-        lld.addLast(3);
+        ArrayDeque<Integer> ad = new ArrayDeque<>();
+        ad.addFirst(0);
+        ad.addFirst(1);
+        ad.addLast(2);
+        ad.addLast(3);
+        ad.addLast(4);
+        ad.addLast(5);
+        ad.addLast(6);
+        ad.addLast(7);
+        ad.addLast(8);
+        ad.addLast(9);
+        ad.addLast(10);
 
-        boolean passed = lld.get(1) == 2;
+        boolean passed = ad.get(10) == 10;
 
-//        passed = (lld.getRecursive(2) == 3) && passed;
+//        passed = (ad.getRecursive(2) == 3) && passed;
 
         printTestStatus(passed);
     }

@@ -22,14 +22,14 @@ public class ArrayDeque<T> {
     private T[] getNewArray() {
         T[] newArray = (T[]) new Object[size];
         System.arraycopy(array, 0, newArray, 0, head);
-        System.arraycopy(array, head, newArray, head + 1, size - head);
+        System.arraycopy(array, head, newArray, head + 1, size - head - 1);
         return newArray;
     }
 
     public void addFirst(T item) {
         size++;
 
-        if (size < array.length) {
+        if (size <= array.length) {
             head = (head + array.length - 1) % array.length;
             array[head] = item;
             return;
@@ -37,14 +37,13 @@ public class ArrayDeque<T> {
 
         T[] newArray = getNewArray();
         newArray[head] = item;
-        head++;
         array = newArray;
     }
 
     public void addLast(T item) {
         size++;
 
-        if (size < array.length) {
+        if (size <= array.length) {
             int tail = (head + size - 1) % array.length;
             array[tail] = item;
             return;
@@ -52,6 +51,7 @@ public class ArrayDeque<T> {
 
         T[] newArray = getNewArray();
         newArray[head] = item;
+        head++;
         array = newArray;
     }
 
