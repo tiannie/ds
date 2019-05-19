@@ -89,6 +89,7 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         T old_first = array[head];
+        array[head] = null;
 
         size--;
         head = (head + 1) % array.length;
@@ -103,6 +104,7 @@ public class ArrayDeque<T> {
 
     public T removeLast() {
         T old_last = array[head + size - 1];
+        array[head + size - 1] = null;
 
         size--;
 
