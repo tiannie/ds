@@ -28,7 +28,7 @@ public class LinkedListDeque<T> {
         sentinel = new DNode();
         DNode p = other.sentinel;
         while (p.next != other.sentinel) {
-            addFirst((T) p.next.item);
+            addLast((T) p.next.item);
             p = p.next;
         }
     }
