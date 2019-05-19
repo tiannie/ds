@@ -94,6 +94,8 @@ public class ArrayDequeTest {
         ad.addLast(8);
         ad.addLast(9);
         ad.addLast(10);
+        int first = ad.removeFirst();
+        int last = ad.removeLast();
 
         boolean passed = ad.get(10) == 10;
 

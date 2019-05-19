@@ -109,8 +109,8 @@ public class ArrayDeque<T> {
             return null;
         }
 
-        T oldLast = array[head + size - 1];
-        array[head + size - 1] = null;
+        T oldLast = array[(head + size - 1) % array.length];
+        array[(head + size - 1) % array.length] = null;
 
         size--;
 
