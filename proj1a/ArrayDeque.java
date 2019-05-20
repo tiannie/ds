@@ -52,7 +52,7 @@ public class ArrayDeque<T> {
 
         T[] newArray = getNewArray();
         head += size - 1;
-        newArray[(head + size) % array.length] = item;
+        newArray[(head + size - 1) % array.length] = item;
         array = newArray;
     }
 
