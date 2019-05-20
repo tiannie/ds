@@ -36,8 +36,8 @@ public class ArrayDeque<T> {
         }
 
         T[] newArray = getNewArray();
-        newArray[head] = item;
         head += size - 1 - 1;
+        newArray[head] = item;
         array = newArray;
     }
 
@@ -51,8 +51,8 @@ public class ArrayDeque<T> {
         }
 
         T[] newArray = getNewArray();
-        newArray[head] = item;
         head += size - 1;
+        newArray[head] = item;
         array = newArray;
     }
 
