@@ -83,13 +83,13 @@ public class ArrayDequeTest {
         System.out.println("Running get/getRecursive test.");
 
         ArrayDeque<Integer> ad = new ArrayDeque<>();
-        for (int number = 1; number <= 10; number++) {
-            ad.addFirst(number);
+        for (int number = 0; number <= 8; number++) {
+            ad.addLast(number);
         }
-        int first = ad.removeFirst();
-        int last = ad.removeFirst();
+//        int first = ad.removeFirst();
+//        int last = ad.removeFirst();
 
-        boolean passed = ad.get(7) == 1;
+        boolean passed = ad.get(0) == 0;
 
 //        passed = (ad.getRecursive(2) == 3) && passed;
 
