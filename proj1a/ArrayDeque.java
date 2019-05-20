@@ -20,9 +20,9 @@ public class ArrayDeque<T> {
     }
 
     private T[] getNewArray() {
-        T[] newArray = (T[]) new Object[size * 2];
+        T[] newArray = (T[]) new Object[(size - 1) * 2];
         System.arraycopy(array, 0, newArray, 0, head);
-        System.arraycopy(array, head, newArray, size + head + 1, size - head - 1);
+        System.arraycopy(array, head, newArray, size - 1 + head, size - 1 - head);
         return newArray;
     }
 
@@ -37,7 +37,7 @@ public class ArrayDeque<T> {
 
         T[] newArray = getNewArray();
         newArray[head] = item;
-        head += size;
+        head += size - 1;
         array = newArray;
     }
 
@@ -53,7 +53,7 @@ public class ArrayDeque<T> {
         T[] newArray = getNewArray();
         newArray[head] = item;
         head++;
-        head += size;
+        head += size - 1;
         array = newArray;
     }
 
