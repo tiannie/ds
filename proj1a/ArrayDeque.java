@@ -75,7 +75,7 @@ public class ArrayDeque<T> {
     }
 
     private T[] shrinkArray() {
-        T[] newArray = (T[]) new Object[size * 4];
+        T[] newArray = (T[]) new Object[size];
         if (head + size <= array.length) {
             System.arraycopy(array, head, newArray, 0, size);
         } else {

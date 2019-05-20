@@ -84,20 +84,15 @@ public class ArrayDequeTest {
 
         ArrayDeque<Integer> ad = new ArrayDeque<>();
         ad.addFirst(0);
-        ad.addFirst(1);
-        ad.addLast(2);
-        ad.addLast(3);
-        ad.addLast(4);
-        ad.addLast(5);
-        ad.addLast(6);
-        ad.addLast(7);
-        ad.addLast(8);
-        ad.addLast(9);
-        ad.addLast(10);
-        int first = ad.removeFirst();
-        int last = ad.removeLast();
+        for (int number = 1; number < 100; number++) {
+            ad.addLast(number);
+        }
+        for (int number = 99; number > 7; number--) {
+            int last = ad.removeLast();
+            System.out.println(number == last);
+        }
 
-        boolean passed = ad.get(8) == 9;
+        boolean passed = ad.get(7) == 7;
 
 //        passed = (ad.getRecursive(2) == 3) && passed;
 
