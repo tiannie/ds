@@ -99,6 +99,7 @@ public class ArrayDeque<T> {
         if (array.length >= 16) {
             if (size < (int) (array.length * 0.25)) {
                 array = shrinkArray();
+                head = 0;
             }
         }
         return oldFirst;
@@ -117,6 +118,7 @@ public class ArrayDeque<T> {
         if (array.length >= 16) {
             if (size < (int) (array.length * 0.25)) {
                 array = shrinkArray();
+                head = 0;
             }
         }
         return oldLast;

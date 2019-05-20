@@ -97,7 +97,7 @@ public class ArrayDequeTest {
         int first = ad.removeFirst();
         int last = ad.removeLast();
 
-        boolean passed = ad.get(10) == 10;
+        boolean passed = ad.get(8) == 9;
 
 //        passed = (ad.getRecursive(2) == 3) && passed;
 
