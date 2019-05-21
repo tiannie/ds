@@ -11,11 +11,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -101,20 +101,39 @@ public class IntList {
         if (A == null) {
             return B;
         }
-        IntList intList_new = new IntList(A.first, null);
-        IntList p_A = A.rest;
-        IntList p_new = intList_new;
-        while (p_A.rest != null) {
-            p_new.rest = new IntList(p_A.first, null);
-            p_A = p_A.rest;
-            p_new = p_new.rest;
+        IntList intListNew = new IntList(A.first, null);
+        IntList pA = A.rest;
+        IntList pNew = intListNew;
+        while (pA.rest != null) {
+            pNew.rest = new IntList(pA.first, null);
+            pA = pA.rest;
+            pNew = pNew.rest;
         }
-        p_new.rest = new IntList(p_A.first, null);
-        p_new = p_new.rest;
-        p_new.rest = B;
-        return intList_new;
+        pNew.rest = new IntList(pA.first, null);
+        pNew = pNew.rest;
+        pNew.rest = B;
+        return intListNew;
     }
 
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null as an input, returns null.
+     */
+    public static IntList reverse(IntList A) {
+        if (A == null) {
+            return null;
+        }
+        IntList p = A;
+        IntList restTmp = p.rest;
+        p.rest = null;
+        while (restTmp != null) {
+            p = restTmp;
+            restTmp = p.rest;
+            p.rest = A;
+            A = p;
+        }
+        return A;
+    }
 
 
 
