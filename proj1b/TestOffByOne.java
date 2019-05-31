@@ -11,6 +11,7 @@ public class TestOffByOne {
         OffByOne obo = new OffByOne();
         assertTrue(obo.equalChars('a', 'b'));
         assertTrue(obo.equalChars('b', 'a'));
+        assertFalse(obo.equalChars('A', 'b'));
         assertTrue(obo.equalChars('d', 'c'));
         assertFalse(obo.equalChars('a', 'c'));
         assertFalse(obo.equalChars('e', 'c'));
